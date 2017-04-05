@@ -11,5 +11,19 @@ import CoreData
 
 @objc(SourceSorting)
 public class SourceSorting: NSManagedObject {
-
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+    }
+    
+    init(sortingType: String) {
+        let entity =  NSEntityDescription.entity(forEntityName: "SourceSorting", in: NewsSources.managedContext)!
+        super.init(entity: entity, insertInto: NewsSources.managedContext)
+        sortType = sortingType
+        createdAt = NSDate()
+    }
+    
+    static var managedContext: NSManagedObjectContext {
+        return CoreDataStackManager.shared.managedObjectContext
+    }
+    
 }

@@ -2,7 +2,7 @@
 //  NewsSources+CoreDataProperties.swift
 //  NewsApplication
 //
-//  Created by Abdul Haseeb on 4/4/17.
+//  Created by Abdul Haseeb on 4/5/17.
 //  Copyright © 2017 Abdul Haseeb. All rights reserved.
 //
 
@@ -19,6 +19,7 @@ extension NewsSources {
     @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var sourceDescription: String?
+    @NSManaged public var createdAt: NSDate?
     @NSManaged public var imagesUrl: ImagesUrl?
     @NSManaged public var sourceSorting: NSSet?
 

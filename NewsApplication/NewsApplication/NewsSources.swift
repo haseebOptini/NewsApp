@@ -19,6 +19,8 @@ public class NewsSources: NSManagedObject {
         static let url = "url"
         static let category = "category"
         static let language = "language"
+        static let urlsToLogos = "urlsToLogos"
+        static let sortBysAvailable = "sortBysAvailable"
     }
     
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
@@ -26,13 +28,26 @@ public class NewsSources: NSManagedObject {
     }
     
     init(dictionary: [String : AnyObject]) {
-        print(dictionary)
         let entity =  NSEntityDescription.entity(forEntityName: "NewsSources", in: NewsSources.managedContext)!
         super.init(entity: entity, insertInto: NewsSources.managedContext)
         id = dictionary[Keys.id] as! String?
         name = dictionary[Keys.name] as! String?
+        sourceDescription = dictionary[Keys.description] as! String?
+        createdAt = NSDate()
         
+        if let logosURL = dictionary[Keys.urlsToLogos] as? [String: AnyObject] {
+            let imageUrls = ImagesUrl(dictionary: logosURL)
+            imageUrls.newsSources = self
+        }
         
+        if let sourceSortingParemters = dictionary[Keys.sortBysAvailable] as? [String] {
+            var sortingParemeters = NSSet()
+            for sortType in sourceSortingParemters {
+                let sortingParemeter = SourceSorting(sortingType: sortType)
+                sortingParemeters = sortingParemeters.adding(sortingParemeter) as NSSet
+            }
+            sourceSorting = sortingParemeters
+        }
     }
         
     public class func deleteAll() {

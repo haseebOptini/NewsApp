@@ -28,6 +28,7 @@
 		88A9E4411E93C130006E3C6B /* ImagesUrl+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9E43F1E93C130006E3C6B /* ImagesUrl+CoreDataProperties.swift */; };
 		88A9E4471E93C3C9006E3C6B /* SourceSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9E4441E93C3C9006E3C6B /* SourceSorting.swift */; };
 		88A9E4481E93C3C9006E3C6B /* SourceSorting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9E4451E93C3C9006E3C6B /* SourceSorting+CoreDataProperties.swift */; };
+		88C16AD31E94FAA30028A46E /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C16AD21E94FAA30028A46E /* UIViewController+Alert.swift */; };
 		CCA35E33B3E16101B2941F95 /* Pods_NewsApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8802AED57666D3DBEEAD285 /* Pods_NewsApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		88A9E43F1E93C130006E3C6B /* ImagesUrl+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImagesUrl+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		88A9E4441E93C3C9006E3C6B /* SourceSorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceSorting.swift; sourceTree = "<group>"; };
 		88A9E4451E93C3C9006E3C6B /* SourceSorting+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SourceSorting+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		88C16AD21E94FAA30028A46E /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		ABB3DCB1D29D797F400DAF2D /* Pods-NewsApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsApplication/Pods-NewsApplication.release.xcconfig"; sourceTree = "<group>"; };
 		C8802AED57666D3DBEEAD285 /* Pods_NewsApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,6 +130,8 @@
 		8844B2CA1E8ED9C100D66FE2 /* NewsApplication */ = {
 			isa = PBXGroup;
 			children = (
+				88C16ADA1E9501750028A46E /* Resources */,
+				88C16AD11E94FA960028A46E /* Extensions */,
 				88A9E43B1E9399EC006E3C6B /* TableViewCell */,
 				8820DC531E9109C3001C9CCD /* Model */,
 				8820DC4A1E8FC947001C9CCD /* Utils */,
@@ -135,7 +139,6 @@
 				8844B2CB1E8ED9C100D66FE2 /* AppDelegate.swift */,
 				8844B2CD1E8ED9C100D66FE2 /* ViewController.swift */,
 				8844B2CF1E8ED9C100D66FE2 /* Main.storyboard */,
-				8844B2D51E8ED9C100D66FE2 /* Assets.xcassets */,
 				8844B2D71E8ED9C100D66FE2 /* LaunchScreen.storyboard */,
 				8844B2DA1E8ED9C100D66FE2 /* Info.plist */,
 			);
@@ -174,6 +177,22 @@
 				88A9E43C1E939A13006E3C6B /* SourcesTableViewCell.swift */,
 			);
 			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		88C16AD11E94FA960028A46E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88C16AD21E94FAA30028A46E /* UIViewController+Alert.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		88C16ADA1E9501750028A46E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8844B2D51E8ED9C100D66FE2 /* Assets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		AAF197FF14FE3061913F9458 /* Frameworks */ = {
@@ -318,6 +337,7 @@
 				88A9E4471E93C3C9006E3C6B /* SourceSorting.swift in Sources */,
 				88A9E4411E93C130006E3C6B /* ImagesUrl+CoreDataProperties.swift in Sources */,
 				8820DC521E91083D001C9CCD /* CoreDataStackManager.swift in Sources */,
+				88C16AD31E94FAA30028A46E /* UIViewController+Alert.swift in Sources */,
 				88519B941E8F736B00086230 /* SourcesViewController.swift in Sources */,
 				8820DC4E1E910622001C9CCD /* ServerCommunicationDelegate.swift in Sources */,
 				8820DC5B1E910A51001C9CCD /* NewsSources+CoreDataProperties.swift in Sources */,

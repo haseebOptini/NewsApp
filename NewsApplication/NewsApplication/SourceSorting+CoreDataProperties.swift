@@ -2,7 +2,7 @@
 //  SourceSorting+CoreDataProperties.swift
 //  NewsApplication
 //
-//  Created by Abdul Haseeb on 4/4/17.
+//  Created by Abdul Haseeb on 4/5/17.
 //  Copyright © 2017 Abdul Haseeb. All rights reserved.
 //
 
@@ -17,6 +17,7 @@ extension SourceSorting {
     }
 
     @NSManaged public var sortType: String?
+    @NSManaged public var createdAt: NSDate?
     @NSManaged public var newsSources: NewsSources?
 
 }
