@@ -22,4 +22,10 @@ struct Generic {
     static let success = "Success"
     static let serverSideError = "Server side error occurred"
     static let sessionError = "Session information missing"
+    static let apiKey = "apiKey=98770d251fdc4d839e966083932fa600"
+}
+
+struct Warnings {
+    static let noSourceID = "News Channel not found"
+    static let noArticleFound = "Sorry current article is unavailable"
 }

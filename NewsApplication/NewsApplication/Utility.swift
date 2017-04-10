@@ -32,6 +32,17 @@ class Utility {
         return dataDictionary
     }
     
+    class func articles(fromResponse response: DataResponse<Any>) -> [[String: AnyObject]]? {
+        guard let jsonResponse = response.result.value else {
+            return nil
+        }
+        print((jsonResponse as! [String: AnyObject])["articles"] ?? "nil")
+        guard let dataDictionary = (jsonResponse as! [String: AnyObject])["articles"] as? [[String : AnyObject]]  else {
+            return nil
+        }
+        return dataDictionary
+    }
+    
     class func errorMessage(from response: DataResponse<Any>) -> String? {
         let json = response.data.flatMap { (data: Data) -> [String : AnyObject]? in 
             guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : AnyObject] else {
