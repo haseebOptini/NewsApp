@@ -21,20 +21,33 @@ class ArticleDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let articleDetails = article {
+            
             titleLabel.text = articleDetails.title
-            publishedDateLabel.text = articleDetails.publishedAt ?? ""
-            detailsLabel.text = articleDetails.newsDescription
-            writterLabel.text = articleDetails.author ?? ""
+//            publishedDateLabel.text = articleDetails.publishedAt ?? ""
+            detailsLabel.text = articleDetails.newsDescription ?? ""
+            writterLabel.text = "Written by: \(articleDetails.author ?? "")"
+            urlLabel.text = articleDetails.url ?? ""
+        
+            if let articlePublishedAt = articleDetails.publishedAt {
+                let dateFormator = DateFormatter()
+                dateFormator.timeZone = TimeZone.current
+                dateFormator.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                let date = dateFormator.date(from: articlePublishedAt)
+                dateFormator.dateFormat = "MMMM d, yyyy"
+                publishedDateLabel.text =  "Published on: \(dateFormator.string(from: date!))"
+            }
             if let cover = articleDetails.urlToImage {
                 titleImage.sd_setImage(with: URL(string: cover),
                                                  placeholderImage: UIImage())
             } else {
                 titleImage.image = UIImage(named: "restaurantListPlaceholder")
             }
+            
         }
-        // Do any additional setup after loading the view.
+        
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

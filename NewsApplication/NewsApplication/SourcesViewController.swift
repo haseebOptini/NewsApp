@@ -23,12 +23,11 @@ class SourcesViewController: UIViewController {
         initializeFetchedResultsController()
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        navigationController?.hidesBottomBarWhenPushed = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func initializeFetchedResultsController() {
@@ -38,20 +37,9 @@ class SourcesViewController: UIViewController {
         
         getSources.delegate = self
         getSources.fetchSources()
-        let moc = CoreDataStackManager.shared.managedObjectContext
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        let managedContext = CoreDataStackManager.shared.managedObjectContext
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -98,7 +86,7 @@ extension SourcesViewController: UITableViewDataSource {
         
         if let cover = newsSource.imagesUrl?.small {
             cell.sourceLogoImage.sd_setImage(with: URL(string: cover),
-                                                 placeholderImage: UIImage())
+                                             placeholderImage: UIImage())
         } else {
             cell.sourceLogoImage.image = UIImage(named: "restaurantListPlaceholder")
         }

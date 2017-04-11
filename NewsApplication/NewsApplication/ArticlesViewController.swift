@@ -25,8 +25,15 @@ class ArticlesViewController: UIViewController {
         initializeFetchedResultsController()
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, -48, 0);
+        tabBarController?.tabBar.isHidden = true
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,8 +44,8 @@ class ArticlesViewController: UIViewController {
         let createdAt = NSSortDescriptor(key: "createdAt", ascending: true)
         request.sortDescriptors = [createdAt]
         
-        getArticles.fetchArticles()
         getArticles.delegate = self
+        getArticles.fetchArticles()
         let moc = CoreDataStackManager.shared.managedObjectContext
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
     }
@@ -114,6 +121,11 @@ extension ArticlesViewController: UITableViewDataSource {
         if let cover = article.urlToImage {
             cell.titleImage.sd_setImage(with: URL(string: cover),
                                              placeholderImage: UIImage(named: "restaurantListPlaceholder"))
+//            cell.titleImage.sd_setImage(with: URL(string: cover) , completed: { (image, error, cache, url) in
+//                if let cellIndexPath = self.tableView.indexPath(for: cell) {
+//                    self.tableView.reloadRows(at: [cellIndexPath], with: .automatic)
+//                }
+//            })
         } else {
             cell.titleImage.image = UIImage(named: "restaurantListPlaceholder")
         }

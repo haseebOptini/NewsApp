@@ -29,7 +29,7 @@ public class Article: NSManagedObject {
         let entity =  NSEntityDescription.entity(forEntityName: "Article", in: NewsSources.managedContext)!
         super.init(entity: entity, insertInto: NewsSources.managedContext)
         author = (dictionary[Keys.author] as? String) ?? ""
-        newsDescription = dictionary[Keys.description] as! String?
+        newsDescription = (dictionary[Keys.description] as? String) ?? ""
         url = dictionary[Keys.url] as! String?
         title = dictionary[Keys.title] as! String?
         urlToImage = dictionary[Keys.urlToImage] as? String ?? ""
